@@ -68,6 +68,7 @@ func InsertInfluxData(c *Config, t time.Time, v ReadoutAccumulator, consumedWatt
 		"Ep3":     float64(v.WattHoursProduced[PhaseC]),
 		"bEc":     float64(consumedWattHourBalanced),
 		"bEp":     float64(producedWattHourBalanced),
+		"sent":    float64(1),
 	}
 	pt, err := client.NewPoint("data", tags, fields, time.Now())
 	if err != nil {
