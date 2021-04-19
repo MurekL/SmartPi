@@ -35,7 +35,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/nDenerserve/SmartPi/src/smartpi"
+	"github.com/MurekL/SmartPi/src/smartpi"
 	"github.com/secsy/goftp"
 	log "github.com/sirupsen/logrus"
 )

@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/eclipse/paho.mqtt.golang"
-	"github.com/nDenerserve/SmartPi/src/smartpi"
+	"github.com/MurekL/SmartPi/src/smartpi"
 	log "github.com/sirupsen/logrus"
 )
 

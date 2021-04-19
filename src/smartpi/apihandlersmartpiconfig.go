@@ -37,7 +37,7 @@ import (
 	"github.com/fatih/structs"
 	"github.com/gorilla/context"
 	"github.com/gorilla/mux"
-	"github.com/nDenerserve/SmartPi/src/smartpi/network"
+	"github.com/MurekL/SmartPi/src/smartpi/network"
 	"github.com/oleiade/reflections"
 	"io/ioutil"
 	"log"

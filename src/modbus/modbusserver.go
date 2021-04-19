@@ -12,7 +12,7 @@ import (
 
 	"github.com/fsnotify/fsnotify"
 	"github.com/goburrow/serial"
-	"github.com/nDenerserve/SmartPi/src/smartpi"
+	"github.com/MurekL/SmartPi/src/smartpi"
 	"github.com/nDenerserve/mbserver"
 	log "github.com/sirupsen/logrus"
 )

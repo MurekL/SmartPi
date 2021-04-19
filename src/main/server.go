@@ -39,7 +39,7 @@ import (
 
 	"github.com/gorilla/context"
 	"github.com/gorilla/mux"
-	"github.com/nDenerserve/SmartPi/src/smartpi"
+	"github.com/MurekL/SmartPi/src/smartpi"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
