@@ -43,7 +43,7 @@ import (
 	"github.com/fsnotify/fsnotify"
 
 	//import the Paho Go MQTT library
-	"github.com/eclipse/paho.mqtt.golang"
+	mqtt "github.com/eclipse/paho.mqtt.golang"
 
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
