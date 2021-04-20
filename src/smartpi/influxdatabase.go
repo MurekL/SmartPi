@@ -13,7 +13,7 @@ import (
 	"time"
 
 	client "github.com/influxdata/influxdb1-client/v2"
-	"github.com/MurekL/SmartPisrc/smartpi/network"
+	"github.com/MurekL/SmartPi/src/smartpi/network"
 	log "github.com/sirupsen/logrus"
 )
 
