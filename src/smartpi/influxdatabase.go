@@ -12,8 +12,8 @@ import (
 	"strings"
 	"time"
 
-	client "github.com/influxdata/influxdb1-client/v2"
 	"github.com/MurekL/SmartPi/src/smartpi/network"
+	client "github.com/influxdata/influxdb1-client/v2"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -42,7 +42,7 @@ func InsertInfluxData(c *Config, t time.Time, v ReadoutAccumulator, consumedWatt
 
 	// Create a point and add to batch
 	macaddress := network.GetMacAddr()
-	tags := map[string]string{"serial": macaddress, "type": "electric"}
+	tags := map[string]string{"serial": macaddress, "type": "electric", "sent": "no"}
 	fields := map[string]interface{}{
 		"I1":      float64(v.Current[PhaseA]),
 		"I2":      float64(v.Current[PhaseB]),
@@ -68,7 +68,6 @@ func InsertInfluxData(c *Config, t time.Time, v ReadoutAccumulator, consumedWatt
 		"Ep3":     float64(v.WattHoursProduced[PhaseC]),
 		"bEc":     float64(consumedWattHourBalanced),
 		"bEp":     float64(producedWattHourBalanced),
-		"sent":    float64(1),
 	}
 	pt, err := client.NewPoint("data", tags, fields, time.Now())
 	if err != nil {
