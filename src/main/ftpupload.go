@@ -86,7 +86,8 @@ func main() {
 
 	if config.FTPcsv {
 
-		csvfile := bytes.NewBufferString(smartpi.CreateCSV(startDate, endDate))
+		csvfile_string := smartpi.CreateCSV(startDate, endDate)
+		csvfile := bytes.NewBufferString(csvfile_string)
 
 		ftpconfig := goftp.Config{
 			User:               config.FTPuser,
@@ -137,7 +138,23 @@ func main() {
 		}
 
 		filename := time.Now().Format("20060102150405") + "_" + config.Serial + ".csv"
+
+		f, x := os.Create("/home/pi/test/" + filename)
+
+		if x != nil {
+			log.Fatal(x)
+		}
+
+		defer f.Close()
+
+		_, y := f.WriteString(csvfile_string)
+
+		if y != nil {
+			log.Fatal(y)
+		}
+
 		err = client.Store(createpath+"/"+filename, csvfile)
+
 		if err != nil {
 			panic(err)
 		} else {
