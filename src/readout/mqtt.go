@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"time"
 
-	mqtt "github.com/eclipse/paho.mqtt.golang"
 	"github.com/MurekL/SmartPi/src/smartpi"
+	mqtt "github.com/eclipse/paho.mqtt.golang"
 	log "github.com/sirupsen/logrus"
 )
 

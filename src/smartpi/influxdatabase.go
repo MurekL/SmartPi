@@ -42,7 +42,7 @@ func InsertInfluxData(c *Config, t time.Time, v ReadoutAccumulator, consumedWatt
 
 	// Create a point and add to batch
 	macaddress := network.GetMacAddr()
-	tags := map[string]string{"serial": macaddress, "type": "electric", "sent": "no"}
+	tags := map[string]string{"serial": macaddress, "type": "electric"}
 	fields := map[string]interface{}{
 		"I1":      float64(v.Current[PhaseA]),
 		"I2":      float64(v.Current[PhaseB]),
