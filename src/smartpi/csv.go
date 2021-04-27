@@ -63,5 +63,8 @@ func CreateCSV(start time.Time, end time.Time) string {
 
 		csv = csv + "\n"
 	}
+
+	csv = csv + "end" //show that the csv file is complete
+
 	return csv
 }
