@@ -131,7 +131,7 @@ var (
 		},
 		"400A/033V": CTFactors{
 			CurrentResistor:       1.0,
-			CurrentClampFactor:    0.08325,
+			CurrentClampFactor:    0.1665,
 			CurrentRmsOffset:      1.010725941,
 			VoltageRmsOffset:      1.0,
 			PowerCorrectionFactor: 0.042929856,
