@@ -21,7 +21,7 @@ require (
 	github.com/secsy/goftp v0.0.0-20200609142545-aa2de14babf4
 	github.com/sirupsen/logrus v1.6.0
 	golang.org/x/exp v0.0.0-20200915172826-20d5ce0eab31
-	gopkg.in/ini.v1 v1.61.0
+	gopkg.in/ini.v1 v1.62.0
 )
 
 go 1.14
