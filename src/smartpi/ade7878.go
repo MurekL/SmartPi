@@ -131,7 +131,7 @@ var (
 		},
 		"400A/033V": CTFactors{
 			CurrentResistor:       1.0,
-			CurrentClampFactor:    0.1665,
+			CurrentClampFactor:    0.08325,
 			CurrentRmsOffset:      1.010725941,
 			VoltageRmsOffset:      1.0,
 			PowerCorrectionFactor: 0.042929856,
@@ -142,6 +142,20 @@ var (
 			CurrentRmsOffset:      1.010725941,
 			VoltageRmsOffset:      1.0,
 			PowerCorrectionFactor: 0.042929856,
+		},
+		"100A/1A": CTFactors{
+			CurrentResistor:       0.33,
+			CurrentClampFactor:    1.0,
+			CurrentRmsOffset:      1.010725941,
+			VoltageRmsOffset:      1.0,
+			PowerCorrectionFactor: 0.043861,
+		},
+		"250A/1A": CTFactors{
+			CurrentResistor:       0.33,
+			CurrentClampFactor:    0.4,
+			CurrentRmsOffset:      1.010725941,
+			VoltageRmsOffset:      1.0,
+			PowerCorrectionFactor: 0.043861,
 		},
 		"X/1A": CTFactors{
 			CurrentResistor:       0.33,
@@ -466,6 +480,10 @@ func ReadCurrent(d *i2c.Device, c *Config, phase Phase) (current float64) {
 			ccf = CTTypes[c.CTType[phase]].CurrentClampFactor
 		} else if c.CTType[phase] == "200A/033V" {
 			ccf = CTTypes[c.CTType[phase]].CurrentClampFactor
+		} else if c.CTType[phase] == "100A/1A" {
+			ccf = CTTypes[c.CTType[phase]].CurrentClampFactor
+		} else if c.CTType[phase] == "250A/1A" {
+			ccf = CTTypes[c.CTType[phase]].CurrentClampFactor
 		} else {
 			ccf = 1.0 / (float64(c.CTTypePrimaryCurrent[phase]) / 100.0)
 		}
@@ -541,6 +559,10 @@ func ReadActiveWatts(d *i2c.Device, c *Config, phase Phase) (watts float64) {
 		pcf = 0.5
 	} else if c.CTType[phase] == "200A/033V" {
 		pcf = 0.5
+	} else if c.CTType[phase] == "100A/1A" {
+		pcf = 0.5
+	} else if c.CTType[phase] == "250A/1A" {
+		pcf = 0.5
 	} else {
 		pcf = 200.0 / (float64(c.CTTypePrimaryCurrent[phase]))
 	}
@@ -602,6 +624,10 @@ func ReadActiveEnergy(d *i2c.Device, c *Config, phase Phase) (energy float64) {
 	} else if c.CTType[phase] == "400A/033V" {
 		pcf = 0.5
 	} else if c.CTType[phase] == "200A/033V" {
+		pcf = 0.5
+	} else if c.CTType[phase] == "100A/1A" {
+		pcf = 0.5
+	} else if c.CTType[phase] == "250A/1A" {
 		pcf = 0.5
 	} else {
 		pcf = 200.0 / (float64(c.CTTypePrimaryCurrent[phase]))
@@ -690,6 +716,10 @@ func ReadApparentPower(d *i2c.Device, c *Config, phase Phase) float64 {
 		pcf = 0.5
 	} else if c.CTType[phase] == "200A/033V" {
 		pcf = 0.5
+	} else if c.CTType[phase] == "100A/1A" {
+		pcf = 0.5
+	} else if c.CTType[phase] == "250A/1A" {
+		pcf = 0.5
 	} else {
 		pcf = 200.0 / (float64(c.CTTypePrimaryCurrent[phase]))
 	}
@@ -721,6 +751,10 @@ func ReadReactivePower(d *i2c.Device, c *Config, phase Phase) (rewatts float64) 
 	} else if c.CTType[phase] == "400A/033V" {
 		pcf = 0.5
 	} else if c.CTType[phase] == "200A/033V" {
+		pcf = 0.5
+	} else if c.CTType[phase] == "100A/1A" {
+		pcf = 0.5
+	} else if c.CTType[phase] == "250A/1A" {
 		pcf = 0.5
 	} else {
 		pcf = 200.0 / (float64(c.CTTypePrimaryCurrent[phase]))
